@@ -4,7 +4,6 @@ const refs = {
   btn: document.querySelector('.change-color'),
   body: document.querySelector('body'),
 };
-console.log(refs.body);
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
@@ -12,7 +11,7 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-refs.container.addEventListener('click', () => {
+refs.btn.addEventListener('click', () => {
   refs.body.style.backgroundColor = getRandomHexColor();
   refs.color.textContent = `${refs.body.style.backgroundColor}`;
 });

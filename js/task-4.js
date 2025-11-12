@@ -21,8 +21,8 @@ const onBtnClick = event => {
 
   if (email === '' || password === '') return alert('All form fields must be filled in');
 
-  console.log(`Email: ${email}`);
-  console.log(`Password: ${password}`);
+  console.log({ email, password });
+  // console.log(`Password: ${password}`);
 
   form.reset();
 };
