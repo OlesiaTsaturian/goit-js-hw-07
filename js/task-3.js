@@ -1,11 +1,37 @@
-function getElementWidth(content, padding, border) {
-  const totalContent = Number.parseFloat(content);
-  const paddingTolal = Number.parseFloat(padding);
-  const borderTotal = Number.parseFloat(border);
+/*//TODO
+Напиши скрипт, який під час набору тексту в інпуті input#name-input (подія input) підставляє його поточне значення в span#name-output як ім’я для привітання. Обов’язково очищай значення в інпуті по краях від пробілів . Якщо інпут порожній або містить лише пробіли, то замість імені у спан має підставлятися рядок "Anonymous".
 
-  return totalContent + 2 * paddingTolal + 2 * borderTotal;
+*/
+
+{
+  /* <input type="text" id="name-input" placeholder="Please enter your name" /> */
 }
+{
+  /* <h1>Hello, <span id="name-output">Anonymous</span>!</h1> */
+}
+/*
+На що буде звертати увагу ментор при перевірці:
 
-console.log(getElementWidth('50px', '8px', '4px')); // 74
-console.log(getElementWidth('60px', '12px', '8.5px')); // 101
-console.log(getElementWidth('200px', '0px', '0px')); // 200
+На елементі input#name-input прослуховується подія input
+Під час набору тексту в інпуті його поточне значення підставляється в span#name-output як ім’я для привітання
+Значення в інпуті очищене від пробілів по краях
+Якщо інпут порожній або містить лише пробіли, то замість імені у спан має підставлятися рядок "Anonymous"
+
+
+ */
+
+const refs = {
+  inputForm: document.querySelector('#name-input'),
+  nameItem: document.querySelector('#name-output'),
+};
+console.log(refs.nameItem);
+
+const onInputPress = item => {
+  const itemValue = item.currentTarget.value.trim();
+
+  refs.nameItem.textContent = itemValue === '' ? 'Anonimus' : itemValue;
+
+  //   console.log(refs.nameItem.textContent);
+};
+
+refs.inputForm.addEventListener('input', onInputPress);
